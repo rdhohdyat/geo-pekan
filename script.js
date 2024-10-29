@@ -72,10 +72,8 @@ const fasilitasUmum = [
       </div>
     `;
 
-    // Menambahkan event listener untuk setiap kartu
     card.addEventListener("click", () => {
-      console.log("Kartu diklik!"); // Debugging
-      // Populate modal with facility details
+
       document.getElementById("modal-image").src = fasilitas.gambar;
       document.getElementById("modal-nama").innerText = fasilitas.nama;
       document.getElementById("modal-deskripsi").innerText =
@@ -85,14 +83,11 @@ const fasilitasUmum = [
       document.getElementById("modal-lokasi").innerText =
         "Lokasi: " + fasilitas.lokasi;
 
-      // Show modal
       document.getElementById("modal").classList.remove("hidden");
     });
 
-    // Optional: Add touchstart event for mobile
     card.addEventListener("touchstart", () => {
-      console.log("Kartu diklik (touch)!"); // Debugging
-      // Populate modal with facility details
+    
       document.getElementById("modal-image").src = fasilitas.gambar;
       document.getElementById("modal-nama").innerText = fasilitas.nama;
       document.getElementById("modal-deskripsi").innerText =
@@ -102,19 +97,16 @@ const fasilitasUmum = [
       document.getElementById("modal-lokasi").innerText =
         "Lokasi: " + fasilitas.lokasi;
 
-      // Show modal
       document.getElementById("modal").classList.remove("hidden");
     });
 
     container.appendChild(card);
   });
 
-  // Close modal event
   document.getElementById("close-modal").addEventListener("click", () => {
     document.getElementById("modal").classList.add("hidden");
   });
 
-  // Close modal when clicking outside of it
   document.getElementById("modal").addEventListener("click", (e) => {
     if (e.target === document.getElementById("modal")) {
       document.getElementById("modal").classList.add("hidden");
