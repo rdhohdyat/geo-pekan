@@ -58,43 +58,53 @@ const fasilitasUmum = [
 let container = document.getElementById("fasilitas-container");
 
 fasilitasUmum.map((fasilitas) => {
-  container.innerHTML += `
-      <div class="bg-white shadow-md w-full rounded-lg overflow-hidden transition-transform transform hover:shadow-xl mb-4">
-        <img
-          src="${fasilitas.gambar}"
-          class="w-full h-[170px] object-cover"
-          alt="${fasilitas.nama}"
-        />
-        <div class="p-4">
-          <h1 class="font-bold text-lg text-sky-900 mb-2 truncate ...">${fasilitas.nama}</h1>
-          <p class="text-sm text-gray-600 mb-2 truncate ...">
-            Deskripsi: ${fasilitas.deskripsi}
-          </p>
-          <p class="text-sm font-semibold text-gray-800">
-            Jam Buka: ${fasilitas.jamBuka}
-          </p>
-          <p class="text-sm text-gray-500">
-            Lokasi: ${fasilitas.lokasi}
-          </p>
-        </div>
-      </div>
-    `;
+  const card = document.createElement("div");
+  card.className =
+    "bg-white shadow-md w-full rounded-lg overflow-hidden transition-transform transform hover:shadow-xl mb-4";
+
+  card.innerHTML = `
+    <img
+      src="${fasilitas.gambar}"
+      class="w-full h-[170px] object-cover"
+      alt="${fasilitas.nama}"
+    />
+    <div class="p-4">
+      <h1 class="font-bold text-lg text-sky-900 mb-2 truncate">${fasilitas.nama}</h1>
+      <p class="text-sm text-gray-600 mb-2 truncate">Deskripsi: ${fasilitas.deskripsi}</p>
+      <p class="text-sm font-semibold text-gray-800">Jam Buka: ${fasilitas.jamBuka}</p>
+      <p class="text-sm text-gray-500">Lokasi: ${fasilitas.lokasi}</p>
+    </div>
+  `;
+
+  // Add click event listener to each card
+  card.addEventListener("click", () => {
+    // Populate modal with facility details
+    document.getElementById("modal-image").src = fasilitas.gambar;
+    document.getElementById("modal-nama").innerText = fasilitas.nama;
+    document.getElementById("modal-deskripsi").innerText = fasilitas.deskripsi;
+    document.getElementById("modal-jamBuka").innerText =
+      "Jam Buka: " + fasilitas.jamBuka;
+    document.getElementById("modal-lokasi").innerText =
+      "Lokasi: " + fasilitas.lokasi;
+
+    // Show modal
+    document.getElementById("modal").classList.remove("hidden");
+  });
+
+  container.appendChild(card);
 });
 
-function initMap() {
-  const pekanbaru = { lat: 0.5071, lng: 101.4478 }; // Pekanbaru coordinates
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
-    center: pekanbaru,
-  });
+// Close modal event
+document.getElementById("close-modal").addEventListener("click", () => {
+  document.getElementById("modal").classList.add("hidden");
+});
 
-  // Example marker
-  new google.maps.Marker({
-    position: pekanbaru,
-    map: map,
-    title: "Pekanbaru",
-  });
-}
+// Close modal when clicking outside of it
+document.getElementById("modal").addEventListener("click", (e) => {
+  if (e.target === document.getElementById("modal")) {
+    document.getElementById("modal").classList.add("hidden");
+  }
+});
 
  function toggleMenu() {
    document.getElementById("mobileMenu").classList.toggle("hidden");
