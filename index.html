@@ -14,25 +14,18 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body style="font-family: 'Poppins', sans-serif">
+  <body>
     <nav
       class="bg-sky-500 text-white shadow-md w-full left-0 right-0 fixed top-0 z-50"
     >
       <div class="flex items-center justify-between px-6 sm:px-20 py-4">
         <h1 class="font-bold text-2xl text-white">GeoPekan</h1>
-        <div class="hidden sm:flex space-x-8">
-          <a href="#home" class="hover:text-sky-200 transition duration-200"
-            >Home</a
-          >
-          <a href="#about" class="hover:text-sky-200 transition duration-200"
-            >About Us</a
-          >
-          <a href="#services" class="hover:text-sky-200 transition duration-200"
-            >Services</a
-          >
-          <a href="#contact" class="hover:text-sky-200 transition duration-200"
-            >Contact</a
-          >
+         <div class="hidden sm:flex space-x-8">
+          <a href="#home" class="hover:text-sky-200 transition duration-200">Home</a>
+          <a href="#about" class="hover:text-sky-200 transition duration-200">About Us</a>
+          <a href="#services" class="hover:text-sky-200 transition duration-200">Services</a>
+          <a href="#team" class="hover:text-sky-200 transition duration-200">Team</a>
+          <a href="#contact" class="hover:text-sky-200 transition duration-200">Contact</a>
         </div>
         <box-icon
           name="menu"
@@ -41,19 +34,18 @@
           onclick="toggleMenu()"
         ></box-icon>
       </div>
-      <div id="mobileMenu" class="sm:hidden bg-sky-500 text-white hidden">
+       <div id="mobileMenu" class="sm:hidden bg-sky-500 text-white hidden p-5">
         <a href="#home" class="block px-4 py-2 hover:bg-sky-600">Home</a>
         <a href="#about" class="block px-4 py-2 hover:bg-sky-600">About Us</a>
-        <a href="#services" class="block px-4 py-2 hover:bg-sky-600"
-          >Services</a
-        >
+        <a href="#services" class="block px-4 py-2 hover:bg-sky-600">Services</a>
+        <a href="#team" class="block px-4 py-2 hover:bg-sky-600">Team</a>
         <a href="#contact" class="block px-4 py-2 hover:bg-sky-600">Contact</a>
       </div>
     </nav>
 
     <section
       id="home"
-      class="flex flex-col justify-center items-center text-sky-900 text-center bg-white pt-20"
+      class="flex flex-col h-screen justify-center items-center text-sky-900 text-center bg-white pt-20"
     >
       <div
         class="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-10 p-6 sm:p-10"
@@ -122,6 +114,42 @@
               Detail fasilitas umum, termasuk alamat, kontak, dan waktu
               operasional.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="py-20 text-sky-900 bg-gray-50">
+      <div class="max-w-4xl mx-auto text-center px-5">
+        <h2 class="font-bold text-3xl sm:text-4xl mb-6">Tim Kami</h2>
+        <p class="text-lg mb-6">
+          Kami adalah tim yang berdedikasi untuk menyediakan informasi yang
+          akurat dan terkini tentang fasilitas umum di Pekanbaru.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <div class="p-6 bg-white shadow-md rounded-lg">
+            <box-icon type='solid' color="gray" class="h-14 w-14" name='user-circle'></box-icon>
+            <h3 class="font-semibold text-xl mb-3">Ievan Bryan</h3>
+          </div>
+          <div class="p-6 bg-white shadow-md rounded-lg">
+            <box-icon type='solid' color="gray" class="h-14 w-14" name='user-circle'></box-icon>
+            <h3 class="font-semibold text-xl mb-3">Daman Huri</h3>
+          </div>
+          <div class="p-6 bg-white shadow-md rounded-lg">
+             <box-icon type='solid' color="gray" class="h-14 w-14" name='user-circle'></box-icon>
+            <h3 class="font-semibold text-xl mb-3">Alfirmansyah</h3>
+          </div>
+          <div class="p-6 bg-white shadow-md rounded-lg">
+             <box-icon type='solid' color="gray" class="h-14 w-14" name='user-circle'></box-icon>
+            <h3 class="font-semibold text-xl mb-3">Bimo Rahma Sakti</h3>
+          </div>
+          <div class="p-6 bg-white shadow-md rounded-lg">
+             <box-icon type='solid' color="gray" class="h-14 w-14" name='user-circle'></box-icon>
+            <h3 class="font-semibold text-xl mb-3">Sri Jamella Ayu</h3>
+          </div>
+          <div class="p-6 bg-white shadow-md rounded-lg">
+             <box-icon type='solid' color="gray" class="h-14 w-14" name='user-circle'></box-icon>
+            <h3 class="font-semibold text-xl mb-3">Ridho Hidayat</h3>
           </div>
         </div>
       </div>
@@ -198,12 +226,13 @@
           <a href="#home" class="text-sm hover:text-sky-200">Home</a>
           <a href="#about" class="text-sm hover:text-sky-200">About Us</a>
           <a href="#services" class="text-sm hover:text-sky-200">Services</a>
+          <a href="#team" class="text-sm hover:text-sky-200">Teams</a>
           <a href="#contact" class="text-sm hover:text-sky-200">Contact</a>
         </div>
 
         <div>
           <h3 class="font-bold text-lg mb-4">Hubungi Kami</h3>
-          <p class="text-sm mb-4">Email: info@geopekan.com</p>
+          <p class="text-sm mb-4">Email: bimo22ti@mahasiswa.pcr.ac.id</p>
           <div class="flex space-x-4">
             <a href="#" class="text-sky-200 hover:text-white">
               <box-icon
@@ -227,10 +256,10 @@
       </div>
 
       <div class="mt-10 text-center text-sm text-sky-200">
-        <p class="">
-          Sistem Informasi Geografis.
+        <p class="">Sistem Informasi Geografis.</p>
+        <p class="font-bold text-xl text-white">
+          Teknik Informatika, Politeknik Caltex Riau.
         </p>
-        <p class="font-bold text-xl text-white">Teknik Informatika, Politeknik Caltex Riau.</p>
       </div>
 
       <div
