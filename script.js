@@ -55,56 +55,71 @@ const fasilitasUmum = [
   },
 ];
 
-let container = document.getElementById("fasilitas-container");
+  let container = document.getElementById("fasilitas-container");
 
-fasilitasUmum.map((fasilitas) => {
-  const card = document.createElement("div");
-  card.className =
-    "bg-white shadow-md w-full rounded-lg overflow-hidden transition-transform transform hover:shadow-xl mb-4";
+  fasilitasUmum.map((fasilitas) => {
+    const card = document.createElement("div");
+    card.className =
+      "bg-white shadow-md w-full rounded-lg overflow-hidden transition-transform transform hover:shadow-xl mb-4 cursor-pointer";
 
-  card.innerHTML = `
-    <img
-      src="${fasilitas.gambar}"
-      class="w-full h-[170px] object-cover"
-      alt="${fasilitas.nama}"
-    />
-    <div class="p-4">
-      <h1 class="font-bold text-lg text-sky-900 mb-2 truncate">${fasilitas.nama}</h1>
-      <p class="text-sm text-gray-600 mb-2 truncate">Deskripsi: ${fasilitas.deskripsi}</p>
-      <p class="text-sm font-semibold text-gray-800">Jam Buka: ${fasilitas.jamBuka}</p>
-      <p class="text-sm text-gray-500">Lokasi: ${fasilitas.lokasi}</p>
-    </div>
-  `;
+    card.innerHTML = `
+      <img src="${fasilitas.gambar}" class="w-full h-[170px] object-cover" alt="${fasilitas.nama}" />
+      <div class="p-4">
+        <h1 class="font-bold text-lg text-sky-900 mb-2 truncate">${fasilitas.nama}</h1>
+        <p class="text-sm text-gray-600 mb-2 truncate">Deskripsi: ${fasilitas.deskripsi}</p>
+        <p class="text-sm font-semibold text-gray-800">Jam Buka: ${fasilitas.jamBuka}</p>
+        <p class="text-sm text-gray-500">Lokasi: ${fasilitas.lokasi}</p>
+      </div>
+    `;
 
-  // Add click event listener to each card
-  card.addEventListener("click", () => {
-    // Populate modal with facility details
-    document.getElementById("modal-image").src = fasilitas.gambar;
-    document.getElementById("modal-nama").innerText = fasilitas.nama;
-    document.getElementById("modal-deskripsi").innerText = fasilitas.deskripsi;
-    document.getElementById("modal-jamBuka").innerText =
-      "Jam Buka: " + fasilitas.jamBuka;
-    document.getElementById("modal-lokasi").innerText =
-      "Lokasi: " + fasilitas.lokasi;
+    // Menambahkan event listener untuk setiap kartu
+    card.addEventListener("click", () => {
+      console.log("Kartu diklik!"); // Debugging
+      // Populate modal with facility details
+      document.getElementById("modal-image").src = fasilitas.gambar;
+      document.getElementById("modal-nama").innerText = fasilitas.nama;
+      document.getElementById("modal-deskripsi").innerText =
+        fasilitas.deskripsi;
+      document.getElementById("modal-jamBuka").innerText =
+        "Jam Buka: " + fasilitas.jamBuka;
+      document.getElementById("modal-lokasi").innerText =
+        "Lokasi: " + fasilitas.lokasi;
 
-    // Show modal
-    document.getElementById("modal").classList.remove("hidden");
+      // Show modal
+      document.getElementById("modal").classList.remove("hidden");
+    });
+
+    // Optional: Add touchstart event for mobile
+    card.addEventListener("touchstart", () => {
+      console.log("Kartu diklik (touch)!"); // Debugging
+      // Populate modal with facility details
+      document.getElementById("modal-image").src = fasilitas.gambar;
+      document.getElementById("modal-nama").innerText = fasilitas.nama;
+      document.getElementById("modal-deskripsi").innerText =
+        fasilitas.deskripsi;
+      document.getElementById("modal-jamBuka").innerText =
+        "Jam Buka: " + fasilitas.jamBuka;
+      document.getElementById("modal-lokasi").innerText =
+        "Lokasi: " + fasilitas.lokasi;
+
+      // Show modal
+      document.getElementById("modal").classList.remove("hidden");
+    });
+
+    container.appendChild(card);
   });
 
-  container.appendChild(card);
-});
-
-// Close modal event
-document.getElementById("close-modal").addEventListener("click", () => {
-  document.getElementById("modal").classList.add("hidden");
-});
-
-// Close modal when clicking outside of it
-document.getElementById("modal").addEventListener("click", (e) => {
-  if (e.target === document.getElementById("modal")) {
+  // Close modal event
+  document.getElementById("close-modal").addEventListener("click", () => {
     document.getElementById("modal").classList.add("hidden");
-  }
-});
+  });
+
+  // Close modal when clicking outside of it
+  document.getElementById("modal").addEventListener("click", (e) => {
+    if (e.target === document.getElementById("modal")) {
+      document.getElementById("modal").classList.add("hidden");
+    }
+  });
 
  function toggleMenu() {
    document.getElementById("mobileMenu").classList.toggle("hidden");
