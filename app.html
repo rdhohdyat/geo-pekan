@@ -1,20 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistem Informasi Geografis Fasilitas Umum Pekanbaru</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    hallo
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistem Informasi Geografis Fasilitas Umum Pekanbaru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="sm:overflow-y-hidden">
+    <nav
+      class="bg-sky-500 text-white shadow-md w-full left-0 right-0 fixed top-0 z-50"
+    >
+      <div class="flex items-center justify-between px-6 sm:px-20 py-4">
+        <h1 class="font-bold text-2xl text-white">GeoPekan</h1>
+        <div class="hidden sm:flex space-x-8">
+          <a href="#home" class="hover:text-sky-200 transition duration-200"
+            >Keluar</a
+          >
+        </div>
+        <box-icon
+          name="menu"
+          color="white"
+          class="text-white text-3xl sm:hidden"
+          onclick="toggleMenu()"
+        ></box-icon>
+      </div>
+      <div id="mobileMenu" class="sm:hidden bg-sky-500 text-white hidden">
+        <a href="#home" class="block px-4 py-2 hover:bg-sky-600">Home</a>
+        <a href="#about" class="block px-4 py-2 hover:bg-sky-600">About Us</a>
+      </div>
+    </nav>
+
+    <div class="pt-20 sm:grid grid-cols-9">
+      <div class="col-span-2 overflow-y-scroll max-h-[90vh] scroll-hidden">
+        <div class="px-5">
+          <form action="" method="post">
+            <div
+              class="bg-white flex items-center justify-between h-full shadow-md border rounded-md px-4 py-2"
+            >
+              <input
+                type="text"
+                placeholder="Temukan fasilitas umum di sekitarmu..."
+                id="name"
+                name="name"
+                class="placeholder:text-xs bg-transparent focus:outline-none"
+                required
+              />
+
+              <box-icon name="search" color="gray"></box-icon>
+            </div>
+          </form>
+        </div>
+
+        <div class="p-5">
+          <h1 class="sm:text-sm font-semibold">Kategori Fasilitas</h1>
+
+          <div class="grid grid-cols-3 sm:grid-cols-2 gap-3 mt-2">
+            <div
+              class="p-3 border shadow-md rounded-md flex flex-col gap-1 items-center justify-center w-full"
+            >
+              <img src="icon/tempat_ibadah.svg" class="w-10 h-10" alt="" />
+              <h1 class="text-xs font-semibold">Ibadah</h1>
+            </div>
+            <div
+              class="p-3 border shadow-md rounded-md gap-1 flex flex-col items-center justify-center w-full"
+            >
+              <img src="icon/kesehatan.svg" alt="" />
+              <h1 class="text-xs font-semibold">Kesehatan</h1>
+            </div>
+            <div
+              class="p-3 border shadow-md rounded-md gap-2 flex flex-col items-center justify-center w-full"
+            >
+              <img src="icon/taman.svg" alt="" />
+              <h1 class="text-xs font-semibold">Taman</h1>
+            </div>
+            <div
+              class="p-3 border shadow-md rounded-md flex flex-col items-center justify-center w-full"
+            >
+              <img src="icon/belanja.svg" alt="" />
+              <h1 class="text-xs font-semibold">Pusat Belanja</h1>
+            </div>
+            <div
+              class="p-3 border shadow-md rounded-md gap-1 flex flex-col items-center justify-center w-full"
+            >
+              <img src="icon/pendidikan.svg" alt="" />
+              <h1 class="text-xs font-semibold">Pendidikan</h1>
+            </div>
+            <div
+              class="p-3 border shadow-md rounded-md flex gap-1 flex-col items-center justify-center w-full"
+            >
+              <img src="icon/transportasi.svg" alt="" />
+              <h1 class="text-xs font-semibold">Transportasi</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-5">
+          <h1 class="sm:text-sm font-semibold">Filter Pencarian</h1>
+          <div class="bg-white shadow-md p-5 border rounded-md mt-2">
+            <div class="flex flex-col gap-2">
+              <label for="">Filter berdasarkan kecamatan</label>
+              <select name="" id="" class="border p-2 rounded-lg">
+                <option value="">Rumbai</option>
+                <option value="">Panam</option>
+                <option value="">Marpoyan</option>
+                <option value="">Rumbai</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="">Filter berdasarkan kategori</label>
+              <select name="" id="" class="border p-2 rounded-lg">
+                <option value="">Tempat ibadah</option>
+                <option value="">Kesehatan</option>
+                <option value="">Pusat perbelanjaan</option>
+                <option value="">Taman & hiburan</option>
+                <option value="">Transportasi</option>
+                <option value="">Pendidikan</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-2 mt-1">
+              <label for="">Filter berdasarkan waktu buka</label>
+              <input type="time" class="border p-2 rounded-lg" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" col-span-2 sm:max-h-[90vh] w-full overflow-y-scroll scroll-hidden">
+        <h1 class="sm:text-sm font-semibold">Fasilitas</h1>
+        <div
+          class="mt-2 grid grid-cols-2 sm:grid-cols-1  gap-4"
+          id="fasilitas-container"
+        ></div>
+      </div>
+      <div class="px-5 col-span-5">
+        <h1 class="sm:text-sm font-semibold mb-2">Lihat Map</h1>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127669.05294262784!2d101.35877377788388!3d0.5137906686681044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5ab80690ee7b1%3A0x94dde92c3823dbe4!2sPekanbaru%2C%20Pekanbaru%20City%2C%20Riau!5e0!3m2!1sen!2sid!4v1730235299522!5m2!1sen!2sid"
+          class="h-[80vh] w-full"
+          width="800"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
