@@ -66,8 +66,8 @@ fasilitasUmum.map((fasilitas) => {
           alt="${fasilitas.nama}"
         />
         <div class="p-4">
-          <h1 class="font-bold text-lg text-sky-900 mb-2">${fasilitas.nama}</h1>
-          <p class="text-sm text-gray-600 mb-2">
+          <h1 class="font-bold text-lg text-sky-900 mb-2 truncate ...">${fasilitas.nama}</h1>
+          <p class="text-sm text-gray-600 mb-2 truncate ...">
             Deskripsi: ${fasilitas.deskripsi}
           </p>
           <p class="text-sm font-semibold text-gray-800">
